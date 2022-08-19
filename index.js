@@ -6,6 +6,12 @@ const booksRouter = require("./routes/books");
 const membersRouter = require("./routes/members");
 
 
+//import library CORS
+const cors = require('cors')
+
+//use cors
+app.use(cors())
+
 app.use(express.json());
 app.use(
     express.urlencoded({

@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const members = require('../services/members');
 
+
+
 router.get('/', async function (req, res, next) {
     try {
         res.json(await members.getMultiple(req.query.page));
