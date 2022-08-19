@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const bodyParser = require("body-parser");
 const booksRouter = require("./routes/books");
 const membersRouter = require("./routes/members");
+
+
 app.use(express.json());
 app.use(
     express.urlencoded({
@@ -14,6 +17,7 @@ app.get("/", (req, res) => {
         message: "ok"
     });
 });
+app.use(bodyParser.json());
 app.use("/books", booksRouter);
 app.use("/members", membersRouter);
 app.use((err, req, res, next) => {
