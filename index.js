@@ -6,11 +6,15 @@ const booksRouter = require("./routes/books");
 const membersRouter = require("./routes/members");
 
 
+
 //import library CORS
 const cors = require('cors')
 
 //use cors
-app.use(cors())
+const options = {
+    origin: 'http://localhost:3000',
+}
+app.use(cors(options))
 
 app.use(express.json());
 app.use(
@@ -23,6 +27,8 @@ app.get("/", (req, res) => {
         message: "ok"
     });
 });
+
+
 app.use(bodyParser.json());
 app.use("/books", booksRouter);
 app.use("/members", membersRouter);
